@@ -5,8 +5,8 @@ from huggingface_hub import snapshot_download
 
 DEST = pathlib.Path.home() / "models"
 REPOS = [
-    ("inclusionAI/Ling-3.0-flash-fp4",    DEST / "Ling-3.0-flash-fp4"),
-    ("inclusionAI/Ling-3.0-flash-dspark", DEST / "Ling-3.0-flash-dspark"),
+    ("inclusionAI/Ling-3.0-flash-fp4",    pathlib.Path(os.environ.get("MODEL_DIR", DEST / "Ling-3.0-flash-fp4"))),
+    ("inclusionAI/Ling-3.0-flash-dspark", pathlib.Path(os.environ.get("DRAFT_DIR", DEST / "Ling-3.0-flash-dspark"))),
 ]
 for repo, local in REPOS:
     print(f"==> {repo} -> {local}", flush=True)

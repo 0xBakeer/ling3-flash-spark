@@ -1,0 +1,23 @@
+services:
+  ling:
+    image: ghcr.io/0xbakeer/ling3-flash-spark:0.1.0
+    build: .
+    ipc: host
+    ports: ["127.0.0.1:30000:30000"]
+    environment:
+      PROFILE: ${PROFILE:-humming-dspark}
+      MEM_FRACTION_STATIC: ${MEM_FRACTION_STATIC:-0.75}
+      HF_TOKEN: ${HF_TOKEN:-}
+    volumes:
+      - ./models:/models                      # ./models/Ling-3.0-flash-fp4 + Ling-3.0-flash-dspark
+      - flashinfer-cache:/root/.cache/flashinfer
+      - humming-cache:/root/.humming
+      - ./logs:/app/logs
+    deploy:
+      resources:
+        reservations:
+          devices: [{driver: nvidia, count: all, capabilities: [gpu]}]
+    restart: "no"          # never auto-restart into a half-released memory pool
+volumes:
+  flashinfer-cache: {}
+  humming-cache: {}

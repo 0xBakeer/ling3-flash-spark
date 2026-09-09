@@ -57,6 +57,16 @@ FP8 LM head halves memory-bandwidth pressure during decode, which is what a
 
 ## Install
 
+Container (image built by the `image` workflow on every `v*` tag, arm64/CUDA 13):
+
+```bash
+mkdir -p models && MODE=docker ./run.sh download   # 66 GB + 2.6 GB into ./models
+MODE=docker ./run.sh compile                         # precompile kernels, once (needs the GPU)
+MODE=docker ./run.sh serve                           # ghcr.io/0xbakeer/ling3-flash-spark
+```
+
+Native:
+
 ```bash
 ./setup.sh            # uv venv (py3.11) + SGLang from inclusionAI's humming branch
 ./download.py         # 66 GB target + 2.6 GB DSpark drafter -> ~/models
@@ -125,7 +135,9 @@ inference-atlas rows are taken with [`atlas/bench_ling.sh`](atlas/bench_ling.sh)
 ## Layout
 
 ```
-setup.sh           build SGLang (inclusionAI ling_v3_support_mxfp4_humming)
+run.sh             dispatcher: setup|download|compile|serve|stop|bench|logs|shell (MODE=docker for compose)
+Dockerfile         arm64 CUDA-13 image, SGLang pinned to the branch SHA; weights mounted at /models
+setup.sh           build SGLang natively (inclusionAI ling_v3_support_mxfp4_humming)
 download.py        fetch target + drafter
 compile-kernel.py  precompile FlashInfer CUTLASS MXFP4 kernels
 start.sh           serve; PROFILE selects the recipe
