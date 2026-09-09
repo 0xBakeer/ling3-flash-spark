@@ -1,0 +1,45 @@
+{
+  "label": "humming-nextn/prose",
+  "workload": "prose",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 4,
+  "thinking": false,
+  "ttft_ms_median": 177.74,
+  "tpot_ms_median": 22.234,
+  "decode_tok_s_median": 44.98,
+  "raw": [
+    {
+      "ttft_ms": 177.14843400017344,
+      "tpot_ms": 22.06259299804513,
+      "decode_tok_s": 45.32558798000787,
+      "completion_tokens": 1024,
+      "total_s": 22.74718107100034,
+      "prompt_tokens_actual": 45
+    },
+    {
+      "ttft_ms": 179.3069639998066,
+      "tpot_ms": 22.405021347018486,
+      "decode_tok_s": 44.63285191795068,
+      "completion_tokens": 1024,
+      "total_s": 23.09964380199972,
+      "prompt_tokens_actual": 45
+    },
+    {
+      "ttft_ms": 178.32596700009162,
+      "tpot_ms": 21.623592007819944,
+      "decode_tok_s": 46.24578560483201,
+      "completion_tokens": 1024,
+      "total_s": 22.299260590999893,
+      "prompt_tokens_actual": 45
+    },
+    {
+      "ttft_ms": 175.09297400010837,
+      "tpot_ms": 23.016925999022572,
+      "decode_tok_s": 43.44628818124825,
+      "completion_tokens": 1024,
+      "total_s": 23.7214082710002,
+      "prompt_tokens_actual": 45
+    }
+  ]
+}

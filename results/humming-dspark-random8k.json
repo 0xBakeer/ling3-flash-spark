@@ -1,0 +1,37 @@
+{
+  "label": "humming-dspark/random8k",
+  "workload": "random",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 3,
+  "thinking": false,
+  "ttft_ms_median": 2122.48,
+  "tpot_ms_median": 13.737,
+  "decode_tok_s_median": 72.8,
+  "raw": [
+    {
+      "ttft_ms": 2130.1831709999988,
+      "tpot_ms": 9.625424230694058,
+      "decode_tok_s": 103.89152478195689,
+      "completion_tokens": 1024,
+      "total_s": 11.97699215900002,
+      "prompt_tokens_actual": 8221
+    },
+    {
+      "ttft_ms": 2119.1349919999993,
+      "tpot_ms": 18.809430456500422,
+      "decode_tok_s": 53.164820822865806,
+      "completion_tokens": 1024,
+      "total_s": 21.361182348999932,
+      "prompt_tokens_actual": 8183
+    },
+    {
+      "ttft_ms": 2122.4784160000354,
+      "tpot_ms": 13.737038994134933,
+      "decode_tok_s": 72.79589148920323,
+      "completion_tokens": 1024,
+      "total_s": 16.17546930700007,
+      "prompt_tokens_actual": 8204
+    }
+  ]
+}

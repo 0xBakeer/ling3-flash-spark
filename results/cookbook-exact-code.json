@@ -1,0 +1,45 @@
+{
+  "label": "cookbook-exact/code",
+  "workload": "code",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 4,
+  "thinking": false,
+  "ttft_ms_median": 186.58,
+  "tpot_ms_median": 14.472,
+  "decode_tok_s_median": 69.3,
+  "raw": [
+    {
+      "ttft_ms": 186.4516230002664,
+      "tpot_ms": 15.257447990224495,
+      "decode_tok_s": 65.54176036783502,
+      "completion_tokens": 1024,
+      "total_s": 15.794820916999925,
+      "prompt_tokens_actual": 58
+    },
+    {
+      "ttft_ms": 191.8815919998451,
+      "tpot_ms": 15.274114297165042,
+      "decode_tok_s": 65.47024465998696,
+      "completion_tokens": 1024,
+      "total_s": 15.817300517999684,
+      "prompt_tokens_actual": 58
+    },
+    {
+      "ttft_ms": 184.7210860000814,
+      "tpot_ms": 12.924905948191466,
+      "decode_tok_s": 77.3700020726206,
+      "completion_tokens": 1024,
+      "total_s": 13.40689987099995,
+      "prompt_tokens_actual": 58
+    },
+    {
+      "ttft_ms": 186.70195200002127,
+      "tpot_ms": 13.686978659823799,
+      "decode_tok_s": 73.06214357850644,
+      "completion_tokens": 1024,
+      "total_s": 14.188481120999768,
+      "prompt_tokens_actual": 58
+    }
+  ]
+}

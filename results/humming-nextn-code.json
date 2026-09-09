@@ -1,0 +1,45 @@
+{
+  "label": "humming-nextn/code",
+  "workload": "code",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 4,
+  "thinking": false,
+  "ttft_ms_median": 178.38,
+  "tpot_ms_median": 18.108,
+  "decode_tok_s_median": 55.23,
+  "raw": [
+    {
+      "ttft_ms": 180.03421599996727,
+      "tpot_ms": 17.861185128054707,
+      "decode_tok_s": 55.987326307328395,
+      "completion_tokens": 1024,
+      "total_s": 18.452026601999933,
+      "prompt_tokens_actual": 58
+    },
+    {
+      "ttft_ms": 178.47518000007767,
+      "tpot_ms": 17.762583439882455,
+      "decode_tok_s": 56.298116959422295,
+      "completion_tokens": 1024,
+      "total_s": 18.34959803899983,
+      "prompt_tokens_actual": 58
+    },
+    {
+      "ttft_ms": 173.95429299995158,
+      "tpot_ms": 18.391980095796924,
+      "decode_tok_s": 54.37152469670884,
+      "completion_tokens": 1024,
+      "total_s": 18.988949931000207,
+      "prompt_tokens_actual": 58
+    },
+    {
+      "ttft_ms": 178.2815470000969,
+      "tpot_ms": 18.355774464320668,
+      "decode_tok_s": 54.47876917118187,
+      "completion_tokens": 1024,
+      "total_s": 18.95623882400014,
+      "prompt_tokens_actual": 58
+    }
+  ]
+}

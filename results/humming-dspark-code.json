@@ -1,0 +1,45 @@
+{
+  "label": "humming-dspark/code",
+  "workload": "code",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 4,
+  "thinking": false,
+  "ttft_ms_median": 179.09,
+  "tpot_ms_median": 14.622,
+  "decode_tok_s_median": 68.41,
+  "raw": [
+    {
+      "ttft_ms": 186.8448840000383,
+      "tpot_ms": 15.227202755620668,
+      "decode_tok_s": 65.67194356369096,
+      "completion_tokens": 1024,
+      "total_s": 15.764273302999982,
+      "prompt_tokens_actual": 58
+    },
+    {
+      "ttft_ms": 179.33825800002978,
+      "tpot_ms": 13.183821018572795,
+      "decode_tok_s": 75.85054428387971,
+      "completion_tokens": 1024,
+      "total_s": 13.66638716,
+      "prompt_tokens_actual": 58
+    },
+    {
+      "ttft_ms": 178.83929599997828,
+      "tpot_ms": 14.358168818181783,
+      "decode_tok_s": 69.64676433764295,
+      "completion_tokens": 1024,
+      "total_s": 14.86724599699994,
+      "prompt_tokens_actual": 58
+    },
+    {
+      "ttft_ms": 177.98673200002213,
+      "tpot_ms": 14.885517709677393,
+      "decode_tok_s": 67.17939002886536,
+      "completion_tokens": 1024,
+      "total_s": 15.405871348999995,
+      "prompt_tokens_actual": 58
+    }
+  ]
+}

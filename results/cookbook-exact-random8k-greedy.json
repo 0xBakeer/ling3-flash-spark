@@ -1,0 +1,37 @@
+{
+  "label": "cookbook-exact/random8k-greedy",
+  "workload": "random",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 3,
+  "thinking": false,
+  "ttft_ms_median": 187.73,
+  "tpot_ms_median": 32.995,
+  "decode_tok_s_median": 30.31,
+  "raw": [
+    {
+      "ttft_ms": 200.8609819999947,
+      "tpot_ms": 21.22054300879785,
+      "decode_tok_s": 47.12414755764774,
+      "completion_tokens": 1024,
+      "total_s": 21.909476480000194,
+      "prompt_tokens_actual": 8221
+    },
+    {
+      "ttft_ms": 153.7537619997238,
+      "tpot_ms": 32.99543316422288,
+      "decode_tok_s": 30.307224488396933,
+      "completion_tokens": 1024,
+      "total_s": 33.90808188899973,
+      "prompt_tokens_actual": 8183
+    },
+    {
+      "ttft_ms": 187.73206300011225,
+      "tpot_ms": 34.74708019452613,
+      "decode_tok_s": 28.77939655365733,
+      "completion_tokens": 1024,
+      "total_s": 35.733995102000335,
+      "prompt_tokens_actual": 8204
+    }
+  ]
+}

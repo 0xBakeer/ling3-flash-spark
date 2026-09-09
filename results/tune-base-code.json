@@ -1,0 +1,45 @@
+{
+  "label": "tune/base/code",
+  "workload": "code",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 4,
+  "thinking": false,
+  "ttft_ms_median": 182.36,
+  "tpot_ms_median": 13.203,
+  "decode_tok_s_median": 75.76,
+  "raw": [
+    {
+      "ttft_ms": 182.03492900011042,
+      "tpot_ms": 13.443008782013095,
+      "decode_tok_s": 74.38810880924306,
+      "completion_tokens": 1024,
+      "total_s": 13.934232912999505,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 183.3718919997409,
+      "tpot_ms": 12.925406625611117,
+      "decode_tok_s": 77.36700507499273,
+      "completion_tokens": 1024,
+      "total_s": 13.406062869999914,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 182.68379399978585,
+      "tpot_ms": 13.825924842620212,
+      "decode_tok_s": 72.32789208555292,
+      "completion_tokens": 1024,
+      "total_s": 14.326604908000263,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 179.97100499997032,
+      "tpot_ms": 12.963180458455376,
+      "decode_tok_s": 77.14156284445914,
+      "completion_tokens": 1024,
+      "total_s": 13.441304613999819,
+      "prompt_tokens_actual": 59
+    }
+  ]
+}
