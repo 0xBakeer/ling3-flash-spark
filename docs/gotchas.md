@@ -29,11 +29,17 @@ DSpark's block size is 8, so the verify window is 9. The KDA ReplaySSM ring
 must be a power of two at least twice that. The default 16 fails startup
 validation with a clear message; 32 is the smallest that passes.
 
-## Parsers
-`ling3` reasoning/tool parsers are upstream SGLang (PR #33561) only. The
-inclusionAI branch needs `--reasoning-parser deepseek-r1 --tool-call-parser qwen25`.
-With `deepseek-r1`, `enable_thinking: false` still yields a few tokens routed
-to `reasoning_content` — read both fields.
+## Parsers: `ling3`, both of them
+Ling-3.0-flash's tool-call format is GLM-4.5 XML:
+`<tool_call>get_weather<arg_key>city</arg_key><arg_value>Hangzhou</arg_value></tool_call>`,
+sometimes without the newline after the name. `--tool-call-parser qwen25`
+expects `<tool_call>{json}</tool_call>` and never matches, so the call is
+returned as chat text (0.1.0 shipped that). `ling3` is a `Glm4MoeDetector`
+subclass built for exactly this layout, and the `ling3` reasoning parser
+pairs with it. Both are on the inclusionAI branch — registered in
+`function_call_parser.py` / `reasoning_parser.py`, not in `server_args.py`.
+`enable_thinking: false` can still route a few tokens to `reasoning_content`;
+read both fields.
 
 ## flashinfer / flashinfer-cubin version lock
 The HF card pins `flashinfer-cubin==0.6.16.post1` against a 0.6.17

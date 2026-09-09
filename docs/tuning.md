@@ -32,6 +32,6 @@ expected accept length. Needs `--linear-attn-verify-backend triton|nv_cutedsl`.
   The checkpoint is `rope_scaling: null` at a native 262144; forcing YaRN
   factor 2.0 re-scales RoPE the model was never trained with.
   `rope_scaling missing 'factor', defaulting to 1.0` in the log is correct.
-- Pass `--reasoning-parser ling3` / `--tool-call-parser ling3` on this branch.
-  They exist upstream only. Use `deepseek-r1` / `qwen25`.
+- Serve with `--tool-call-parser qwen25`: tool calls come back as text. Use
+  `ling3` for both parsers.
 - Start a second model while one is resident. See gotchas.

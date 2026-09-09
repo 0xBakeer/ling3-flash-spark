@@ -106,9 +106,12 @@ Two traps it exists to avoid:
 - **`--linear-replayssm-cache-len 32` is mandatory with DSpark.** The drafter's
   block size is 8, so the verify window is 9, and the KDA ReplaySSM ring must be
   a power of two at least twice the window. The default 16 fails startup.
-- **`ling3` parsers do not exist on the inclusionAI branch.** They are upstream
-  (SGLang PR #33561) only. This branch needs `--reasoning-parser deepseek-r1
-  --tool-call-parser qwen25`; passing `ling3` aborts startup.
+- **Use the `ling3` parsers, for both reasoning and tool calls.** The model
+  emits GLM-4.5-style XML tool calls (`<tool_call>name <arg_key>…<arg_value>…`);
+  `qwen25` expects JSON and lets every tool call fall through as plain text in
+  the chat. Both `ling3` detectors are on the inclusionAI branch (they are
+  registered in the parser tables, not in `server_args.py` — grepping there
+  says otherwise, which is how 0.1.0 shipped the wrong default).
 - **flashinfer and flashinfer-cubin versions must match.** The HF card pins
   cubin 0.6.16.post1 against a 0.6.17 flashinfer and papers over it with
   `FLASHINFER_DISABLE_VERSION_CHECK=1`. Installing cubin 0.6.17 is the real fix.

@@ -3,6 +3,13 @@
 Entries are measurement epochs, not code releases: a new entry means the
 numbers were re-taken, and says on what.
 
+## 0.1.1 — 2026-09-09
+
+No re-measurement. Fix: default parsers are now `ling3` for both reasoning and
+tool calls. 0.1.0 used `qwen25`, which expects JSON tool calls; Ling emits
+GLM-4.5 XML, so in an agent UI every tool call arrived as chat text. Speed
+rows are unaffected (no tool traffic).
+
 ## 0.1.0 — 2026-09-09
 
 First recipe. Single NVIDIA DGX Spark (GB10, sm_121, 121 GiB unified memory).

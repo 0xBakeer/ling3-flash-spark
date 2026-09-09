@@ -42,8 +42,8 @@ CHUNKED_PREFILL_SIZE="${CHUNKED_PREFILL_SIZE:-8192}"
 MAX_PREFILL_TOKENS="${MAX_PREFILL_TOKENS:-16384}"
 PAGE_SIZE="${PAGE_SIZE:-64}"
 RANDOM_SEED="${RANDOM_SEED:-308534008}"
-REASONING_PARSER="${REASONING_PARSER:-deepseek-r1}"
-TOOL_CALL_PARSER="${TOOL_CALL_PARSER:-qwen25}"
+REASONING_PARSER="${REASONING_PARSER:-ling3}"
+TOOL_CALL_PARSER="${TOOL_CALL_PARSER:-ling3}"
 YARN_OVERRIDE="${YARN_OVERRIDE:-0}"
 # Tuning passthrough (tune.sh): whitespace-separated extra server flags and
 # KEY=VALUE env entries. Empty by default, so plain ./start.sh is unchanged.
