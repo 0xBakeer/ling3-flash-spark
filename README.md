@@ -133,7 +133,23 @@ Two traps it exists to avoid:
 ## Results
 
 All measured rows, raw per-run spreads and the reading of them: [`results/README.md`](results/README.md).
-inference-atlas rows are taken with [`atlas/bench_ling.sh`](atlas/bench_ling.sh) against a running server.
+
+**On inference-atlas.** The same runs are published as reproducible rows in the
+[inference-atlas](https://github.com/0xBakeer/inference-atlas) configuration map, under
+`results/sglang/inclusionAI/Ling-3.0-flash/nvidia-gb10-dgx-spark/`. Two server configs:
+
+| config | thinking | rows |
+|---|---|---|
+| `a3b46e9e` | on (the model's default) | 7 speed workloads |
+| `98804d29` | off | 5 speed workloads |
+
+Thinking-on is the faster config here, which is not the obvious result — the DSpark
+drafter predicts the model's own reasoning style better than it predicts terse answers, so
+acceptance length rises: `serve-single` 61.8 vs 50.6 tok/s, `prefill-8k` 14.1 vs 5.6.
+v2 eval rows are being added as they finish.
+
+Take your own rows with [`atlas/bench_ling.sh`](atlas/bench_ling.sh) against a running
+server (`THINKING=on|off`, `WORKLOADS=...`).
 
 ## Layout
 
