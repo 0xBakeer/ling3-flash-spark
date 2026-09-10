@@ -1,0 +1,94 @@
+{
+  "label": "headline-prose",
+  "workload": "prose",
+  "seed_salt": "HEAD",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 10,
+  "thinking": false,
+  "ttft_ms_median": 191.22,
+  "tpot_ms_median": 24.48,
+  "decode_tok_s_median": 40.85,
+  "raw": [
+    {
+      "ttft_ms": 191.33355299709365,
+      "tpot_ms": 24.843990254151997,
+      "decode_tok_s": 40.2511830736561,
+      "completion_tokens": 1024,
+      "total_s": 25.606735582994588,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 191.4211220064317,
+      "tpot_ms": 25.720157809377437,
+      "decode_tok_s": 38.88001027876295,
+      "completion_tokens": 1024,
+      "total_s": 26.50314256099955,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 191.1107709966018,
+      "tpot_ms": 24.460605016619585,
+      "decode_tok_s": 40.88206319183672,
+      "completion_tokens": 1024,
+      "total_s": 25.214309702998435,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 189.15610600379296,
+      "tpot_ms": 17.204091518079288,
+      "decode_tok_s": 58.12570800086296,
+      "completion_tokens": 1024,
+      "total_s": 17.788941728998907,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 189.24647399398964,
+      "tpot_ms": 23.710409350930096,
+      "decode_tok_s": 42.1755687638844,
+      "completion_tokens": 1024,
+      "total_s": 24.444995239995478,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 190.97486999817193,
+      "tpot_ms": 24.2434810009747,
+      "decode_tok_s": 41.24820193765885,
+      "completion_tokens": 1024,
+      "total_s": 24.99205593399529,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 189.1591480016359,
+      "tpot_ms": 23.985534040078957,
+      "decode_tok_s": 41.69179632727945,
+      "completion_tokens": 1024,
+      "total_s": 24.72636047100241,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 192.03709199791774,
+      "tpot_ms": 24.875704683286056,
+      "decode_tok_s": 40.19986620406771,
+      "completion_tokens": 1024,
+      "total_s": 25.639882982999552,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 192.24459700490115,
+      "tpot_ms": 24.64443634799505,
+      "decode_tok_s": 40.577109814132754,
+      "completion_tokens": 1024,
+      "total_s": 25.40350298100384,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 191.9801819967688,
+      "tpot_ms": 24.500336599216922,
+      "decode_tok_s": 40.815765773273576,
+      "completion_tokens": 1024,
+      "total_s": 25.25582452299568,
+      "prompt_tokens_actual": 46
+    }
+  ]
+}

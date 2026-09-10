@@ -1,4 +1,26 @@
-# Results — single NVIDIA DGX Spark, 2026-09-09
+# Results — single NVIDIA DGX Spark
+
+## Headline: the recommended configuration
+
+`PROFILE=humming-dspark`, thinking on (the model's default), recipe defaults,
+one request at a time, greedy, 1024 output tokens forced, **10 runs** per
+workload with identical prompts across runs (`--seed-salt HEAD`).
+
+| workload | decode tok/s (median) | TPOT | TTFT | run spread |
+|---|---:|---:|---:|---|
+| code | **72.3** | 13.8 ms | 187 ms | 68.7 – 82.1 |
+| prose | **40.9** | 24.5 ms | 191 ms | 38.9 – 58.1 |
+| random 8k → 1k | **36.3** | 27.6 ms | 2033 ms | 33.9 – 77.2 |
+
+The spread is not noise in the usual sense — it is DSpark's acceptance length
+tracking the content being generated. The same server answers a predictable
+continuation at 82 tok/s and an unpredictable one at 69. Report medians over
+several prompts; a single favourable run is not a number.
+
+Thinking on is both the more accurate **and** the faster mode on this stack;
+see the eval table below and `docs/tuning.md`.
+
+## Same box, same harness — profile comparison
 
 All rows: one request at a time, thinking off, output forced to the full `osl` with `ignore_eos`, medians over the listed runs. Raw per-run TPOTs shown so the spread is visible. Harness: `bench.py` (see `docs/benchmarking.md`). Server: SGLang `0.0.0.dev1+g079d40460`, `--mem-fraction-static 0.75` unless a variant says otherwise.
 
@@ -40,3 +62,29 @@ All rows: one request at a time, thinking off, output forced to the full `osl` w
 - Published single-Spark numbers for this model (Ant/NVIDIA guides): llama.cpp Q4_K_M 46.2, vLLM FP4 44.9, SGLang INT4+NEXTN 42.2, SGLang MXFP4 marlin 40.6, vLLM INT4 38.3, Humming+NEXTN notebook 53.8 claimed / 34.9 printed — all short-prompt thinking-on rows, i.e. comparable to the `prose`/`code` rows here, not to `random`.
 
 Lever sweep (`tune.sh`): `base` taken; `cutedsl`, `align`, `mem085`, `autotune` pending.
+
+
+## Accuracy: what turning thinking off costs
+
+Same weights, same server, same suites; only `--default-chat-template-kwargs`
+differs. Published as inference-atlas rows under configs `a3b46e9e` (on) and
+`a9e5da49` (off).
+
+| suite | thinking on | thinking off | delta |
+|---|---:|---:|---:|
+| eval-knowledge-v2 | 1.000 | 1.000 | 0.0 |
+| eval-science-v2 | 1.000 | 0.950 | −5.0 |
+| eval-math-v2 | 0.993 | 0.821 | −17.2 |
+| eval-security-v2 | 0.973 | 0.829 | −14.4 |
+| eval-commonsense-v2 | 0.948 | 0.853 | −9.5 |
+| eval-reasoning-v2 | 0.950 | 0.643 | **−30.7** |
+
+Ling-3.0-flash spends very few tokens thinking — a couple of dozen on an
+arithmetic prompt — so thinking reads as nearly free to switch off for
+throughput. It is not. Only pure recall is unaffected. Leave it on: it is the
+model's default, it is more accurate, and on this stack it is also faster.
+
+## Tuning
+
+Six levers were A/B'd; none beats these defaults, and one is a clear loss.
+Table and the reasoning: `docs/tuning.md`.
