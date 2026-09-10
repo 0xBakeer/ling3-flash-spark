@@ -17,7 +17,7 @@ Two gotchas this harness exists to avoid:
 Usage:
     python3 bench.py --label humming-dspark --isl 8192 --osl 1024 --runs 3
 """
-import argparse, hashlib, json, random, statistics, string, sys, time
+import argparse, hashlib, json, os, random, statistics, string, sys, time
 from urllib import request as urlrequest
 
 def post(base, path, payload, api_key=None, timeout=1800, stream=False):
@@ -142,7 +142,10 @@ def run_once(base, model, prompt, osl, api_key, thinking, temperature):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base", default="http://127.0.0.1:30000")
+    # Default follows $PORT (and $BENCH_BASE) so a bench can never silently
+    # measure a closed port while the server runs somewhere else.
+    ap.add_argument("--base", default=os.environ.get("BENCH_BASE")
+                    or f"http://127.0.0.1:{os.environ.get('PORT', '30000')}")
     ap.add_argument("--model", default="ling-3.0-flash")
     ap.add_argument("--api-key", default=None)
     ap.add_argument("--isl", type=int, default=8192)
@@ -152,6 +155,12 @@ def main():
     ap.add_argument("--thinking", action="store_true")
     ap.add_argument("--temperature", type=float, default=0.6)
     ap.add_argument("--workload", default="random", choices=["random", "prose", "code"])
+    ap.add_argument("--seed-salt", default=None,
+                    help="Fixes the prompt seed. Runs that share a salt get IDENTICAL prompts, "
+                         "which is required to compare two server configs on the random "
+                         "workload -- there the generated text decides acceptance, so different "
+                         "prompts are different experiments. Default: derived from --label, "
+                         "which keeps two rows on the SAME server off each other's prefix cache.")
     ap.add_argument("--label", default="run")
     ap.add_argument("--out", default=None)
     a = ap.parse_args()
@@ -166,7 +175,8 @@ def main():
     # Seed from the label too: two benches in one server session (e.g. the
     # temp-0.6 and greedy rows) must not share prompts, or the second one is
     # served from the prefix cache and its TTFT is fiction.
-    label_salt = int(hashlib.sha1(a.label.encode()).hexdigest()[:6], 16) % 100000
+    salt_src = a.seed_salt if a.seed_salt is not None else a.label
+    label_salt = int(hashlib.sha1(salt_src.encode()).hexdigest()[:6], 16) % 100000
     for i in range(a.warmup + a.runs):
         seed = 1000 + i + label_salt          # fresh prompt every run: no cache hits
         if a.workload == "random":
@@ -186,7 +196,7 @@ def main():
 
     med = lambda k: statistics.median(x[k] for x in results)
     summary = {
-        "label": a.label, "workload": a.workload, "isl": a.isl, "osl": a.osl, "runs": a.runs,
+        "label": a.label, "workload": a.workload, "seed_salt": a.seed_salt, "isl": a.isl, "osl": a.osl, "runs": a.runs,
         "thinking": a.thinking,
         "ttft_ms_median": round(med("ttft_ms"), 2),
         "tpot_ms_median": round(med("tpot_ms"), 3),

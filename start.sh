@@ -49,6 +49,12 @@ YARN_OVERRIDE="${YARN_OVERRIDE:-0}"
 # KEY=VALUE env entries. Empty by default, so plain ./start.sh is unchanged.
 EXTRA_FLAGS="${EXTRA_FLAGS:-}"
 EXTRA_ENV="${EXTRA_ENV:-}"
+# JSON-valued flags cannot ride in EXTRA_FLAGS: that is word-split on spaces,
+# which shreds an object like {"enable_thinking": true} into three argv items.
+# Give the chat-template default its own variable, appended as one element.
+# THIS IS THE THINKING SWITCH, and thinking on is the recommended setting:
+#   DEFAULT_CHAT_TEMPLATE_KWARGS='{"enable_thinking": true}' ./start.sh
+DEFAULT_CHAT_TEMPLATE_KWARGS="${DEFAULT_CHAT_TEMPLATE_KWARGS:-}"
 
 [[ -d "$MODEL_DIR" ]] || err "target weights not found: $MODEL_DIR (run ./download.py)"
 [[ -f .venv/bin/activate ]] || err ".venv missing -- run ./setup.sh first"
@@ -109,6 +115,7 @@ esac
 
 # shellcheck disable=SC2206
 [[ -n "$EXTRA_FLAGS" ]] && FLAGS+=($EXTRA_FLAGS)
+[[ -n "$DEFAULT_CHAT_TEMPLATE_KWARGS" ]] && FLAGS+=(--default-chat-template-kwargs "$DEFAULT_CHAT_TEMPLATE_KWARGS")
 # shellcheck disable=SC2206
 [[ -n "$EXTRA_ENV" ]] && ENV_EXTRA+=($EXTRA_ENV)
 
@@ -136,7 +143,7 @@ AUTOTUNE_FLAG=--disable-flashinfer-autotune
 # shellcheck disable=SC1091
 source .venv/bin/activate
 
-info "profile=$PROFILE  moe=$MOE_BACKEND  spec=$SPEC  mem_fraction=$MEM_FRACTION_STATIC  port=$PORT  extra_flags=[$EXTRA_FLAGS]  extra_env=[$EXTRA_ENV]"
+info "profile=$PROFILE  moe=$MOE_BACKEND  spec=$SPEC  mem_fraction=$MEM_FRACTION_STATIC  port=$PORT  extra_flags=[$EXTRA_FLAGS]  chat_kwargs=[$DEFAULT_CHAT_TEMPLATE_KWARGS]  extra_env=[$EXTRA_ENV]"
 
 mkdir -p logs "$HOME/.humming/cache"
 

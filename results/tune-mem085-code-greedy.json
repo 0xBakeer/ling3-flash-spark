@@ -1,0 +1,37 @@
+{
+  "label": "tune/mem085/code-greedy",
+  "workload": "code",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 3,
+  "thinking": false,
+  "ttft_ms_median": 184.04,
+  "tpot_ms_median": 13.971,
+  "decode_tok_s_median": 71.58,
+  "raw": [
+    {
+      "ttft_ms": 181.25987199891824,
+      "tpot_ms": 13.97125845063586,
+      "decode_tok_s": 71.57551365421116,
+      "completion_tokens": 1024,
+      "total_s": 14.473857266999403,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 186.215762001666,
+      "tpot_ms": 13.11212079863013,
+      "decode_tok_s": 76.26531324394703,
+      "completion_tokens": 1024,
+      "total_s": 13.59991533900029,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 184.0397199994186,
+      "tpot_ms": 14.525110761486982,
+      "decode_tok_s": 68.84629084216544,
+      "completion_tokens": 1024,
+      "total_s": 15.043228029000602,
+      "prompt_tokens_actual": 59
+    }
+  ]
+}

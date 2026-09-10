@@ -39,6 +39,7 @@ for V in $VARIANTS; do
         unset DROP_AUTOTUNE
     fi
     PROFILE=humming-dspark MEM_FRACTION_STATIC="$MEM" EXTRA_FLAGS="${VFLAGS[$V]}" \
+        DEFAULT_CHAT_TEMPLATE_KWARGS='{"enable_thinking": true}' \
         setsid nohup ./start.sh > "logs/tune-$V.log" 2>&1 &
     sleep 45
     up=0

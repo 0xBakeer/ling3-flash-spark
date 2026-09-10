@@ -1,0 +1,45 @@
+{
+  "label": "tune/mem085/prose",
+  "workload": "prose",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 4,
+  "thinking": false,
+  "ttft_ms_median": 189.29,
+  "tpot_ms_median": 24.788,
+  "decode_tok_s_median": 40.35,
+  "raw": [
+    {
+      "ttft_ms": 189.7431410034187,
+      "tpot_ms": 24.57017559921567,
+      "decode_tok_s": 40.699749823193045,
+      "completion_tokens": 1024,
+      "total_s": 25.32503277900105,
+      "prompt_tokens_actual": 45
+    },
+    {
+      "ttft_ms": 190.7290089984599,
+      "tpot_ms": 25.226455340176287,
+      "decode_tok_s": 39.640924042442656,
+      "completion_tokens": 1024,
+      "total_s": 25.9973928219988,
+      "prompt_tokens_actual": 45
+    },
+    {
+      "ttft_ms": 188.82819800273865,
+      "tpot_ms": 22.21145615542206,
+      "decode_tok_s": 45.02181185252409,
+      "completion_tokens": 1024,
+      "total_s": 22.911147844999505,
+      "prompt_tokens_actual": 45
+    },
+    {
+      "ttft_ms": 188.49642100030906,
+      "tpot_ms": 25.00529003323444,
+      "decode_tok_s": 39.9915377374509,
+      "completion_tokens": 1024,
+      "total_s": 25.768908124999143,
+      "prompt_tokens_actual": 45
+    }
+  ]
+}

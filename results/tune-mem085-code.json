@@ -1,0 +1,45 @@
+{
+  "label": "tune/mem085/code",
+  "workload": "code",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 4,
+  "thinking": false,
+  "ttft_ms_median": 184.45,
+  "tpot_ms_median": 14.551,
+  "decode_tok_s_median": 68.75,
+  "raw": [
+    {
+      "ttft_ms": 184.25647899857722,
+      "tpot_ms": 13.579480060607978,
+      "decode_tok_s": 73.64052198882409,
+      "completion_tokens": 1024,
+      "total_s": 14.076064581000537,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 184.8082849974162,
+      "tpot_ms": 14.880387231673208,
+      "decode_tok_s": 67.20255222064918,
+      "completion_tokens": 1024,
+      "total_s": 15.407444422999106,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 184.41289400288952,
+      "tpot_ms": 14.25098855620708,
+      "decode_tok_s": 70.1705706980198,
+      "completion_tokens": 1024,
+      "total_s": 14.763174187002733,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 184.49546799820382,
+      "tpot_ms": 14.851404271750106,
+      "decode_tok_s": 67.3337000126089,
+      "completion_tokens": 1024,
+      "total_s": 15.377482037998561,
+      "prompt_tokens_actual": 59
+    }
+  ]
+}

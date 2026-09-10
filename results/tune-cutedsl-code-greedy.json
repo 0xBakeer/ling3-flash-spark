@@ -1,0 +1,37 @@
+{
+  "label": "tune/cutedsl/code-greedy",
+  "workload": "code",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 3,
+  "thinking": false,
+  "ttft_ms_median": 181.87,
+  "tpot_ms_median": 13.569,
+  "decode_tok_s_median": 73.7,
+  "raw": [
+    {
+      "ttft_ms": 181.8670069988002,
+      "tpot_ms": 13.568640450636403,
+      "decode_tok_s": 73.6993513563916,
+      "completion_tokens": 1024,
+      "total_s": 14.062586187999841,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 181.05178400219302,
+      "tpot_ms": 13.780483235580025,
+      "decode_tok_s": 72.56639574279122,
+      "completion_tokens": 1024,
+      "total_s": 14.278486134000559,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 187.5211259975913,
+      "tpot_ms": 13.193254439884381,
+      "decode_tok_s": 75.79630973968872,
+      "completion_tokens": 1024,
+      "total_s": 13.684220417999313,
+      "prompt_tokens_actual": 59
+    }
+  ]
+}

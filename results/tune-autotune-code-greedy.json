@@ -1,0 +1,38 @@
+{
+  "label": "tune/autotune/code-greedy",
+  "workload": "code",
+  "seed_salt": null,
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 3,
+  "thinking": false,
+  "ttft_ms_median": 185.78,
+  "tpot_ms_median": 13.57,
+  "decode_tok_s_median": 73.69,
+  "raw": [
+    {
+      "ttft_ms": 183.49087400201824,
+      "tpot_ms": 14.018109027367686,
+      "decode_tok_s": 71.33629778793207,
+      "completion_tokens": 1024,
+      "total_s": 14.52401640899916,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 185.77751200064085,
+      "tpot_ms": 13.458979263929193,
+      "decode_tok_s": 74.29983956361797,
+      "completion_tokens": 1024,
+      "total_s": 13.954313299000205,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 185.88813099995605,
+      "tpot_ms": 13.57001552981541,
+      "decode_tok_s": 73.6918832408737,
+      "completion_tokens": 1024,
+      "total_s": 14.068014018001122,
+      "prompt_tokens_actual": 59
+    }
+  ]
+}

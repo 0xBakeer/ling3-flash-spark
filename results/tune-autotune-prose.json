@@ -1,0 +1,45 @@
+{
+  "label": "tune/autotune/prose",
+  "workload": "prose",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 4,
+  "thinking": false,
+  "ttft_ms_median": 189.18,
+  "tpot_ms_median": 24.786,
+  "decode_tok_s_median": 40.35,
+  "raw": [
+    {
+      "ttft_ms": 189.84243199884077,
+      "tpot_ms": 24.88712015444576,
+      "decode_tok_s": 40.1814269306432,
+      "completion_tokens": 1024,
+      "total_s": 25.649366349996853,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 190.62328499785508,
+      "tpot_ms": 25.079494443793934,
+      "decode_tok_s": 39.87321204744045,
+      "completion_tokens": 1024,
+      "total_s": 25.846946100999048,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 186.33025500093936,
+      "tpot_ms": 24.47381109970347,
+      "decode_tok_s": 40.860003206125754,
+      "completion_tokens": 1024,
+      "total_s": 25.223039009997592,
+      "prompt_tokens_actual": 46
+    },
+    {
+      "ttft_ms": 188.52487000185647,
+      "tpot_ms": 24.684850678396597,
+      "decode_tok_s": 40.51067648852211,
+      "completion_tokens": 1024,
+      "total_s": 25.441127114001574,
+      "prompt_tokens_actual": 46
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "label": "tune/cutedsl/code",
+  "workload": "code",
+  "isl": 8192,
+  "osl": 1024,
+  "runs": 4,
+  "thinking": false,
+  "ttft_ms_median": 182.29,
+  "tpot_ms_median": 14.244,
+  "decode_tok_s_median": 70.2,
+  "raw": [
+    {
+      "ttft_ms": 182.06812199787237,
+      "tpot_ms": 13.392354382210792,
+      "decode_tok_s": 74.66946971835742,
+      "completion_tokens": 1024,
+      "total_s": 13.882446654999512,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 182.30074500024784,
+      "tpot_ms": 14.247882380253673,
+      "decode_tok_s": 70.18586856008253,
+      "completion_tokens": 1024,
+      "total_s": 14.757884419999755,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 182.27650499829906,
+      "tpot_ms": 14.720681778104542,
+      "decode_tok_s": 67.93163625664366,
+      "completion_tokens": 1024,
+      "total_s": 15.241533963999245,
+      "prompt_tokens_actual": 59
+    },
+    {
+      "ttft_ms": 187.2066010000708,
+      "tpot_ms": 14.240748486803655,
+      "decode_tok_s": 70.2210281240948,
+      "completion_tokens": 1024,
+      "total_s": 14.75549230300021,
+      "prompt_tokens_actual": 59
+    }
+  ]
+}
