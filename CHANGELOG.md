@@ -10,7 +10,16 @@ tool calls. 0.1.0 used `qwen25`, which expects JSON tool calls; Ling emits
 GLM-4.5 XML, so in an agent UI every tool call arrived as chat text. Speed
 rows are unaffected (no tool traffic).
 
-## 0.1.0 — 2026-09-09
+## 0.1.2 — 2026-09-10
+
+No re-measurement. Container correctness only, found by validating the
+published image: it cloned SGLang with full history, so `setuptools_scm`
+reported `0.0.0.dev17258+g079d40460` where a native install reports
+`0.0.0.dev1+g079d40460` for the same commit — two engine identities for one
+build. The image now clones shallow, pins `SETUPTOOLS_SCM_PRETEND_VERSION`,
+and fails the build if the branch head is no longer `SGLANG_REF`.
+
+## 0.1.1 — 2026-09-09
 
 First recipe. Single NVIDIA DGX Spark (GB10, sm_121, 121 GiB unified memory).
 

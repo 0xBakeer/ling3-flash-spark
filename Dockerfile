@@ -10,8 +10,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && git config --global http.version HTTP/1.1
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-RUN git clone --filter=blob:none https://github.com/inclusionAI/sglang.git /opt/sglang \
-    && git -C /opt/sglang checkout -q ${SGLANG_REF}
+# Shallow, and with the version pinned. Both matter: setuptools_scm derives the
+# dev counter from how much history is present, so a full clone reports
+# 0.0.0.dev17258+g079d40460 while a --depth 1 clone reports 0.0.0.dev1+g079d40460
+# for the SAME commit. Anything keyed on the engine version string -- an
+# inference-atlas cell, a cached kernel dir -- would then see two engines where
+# there is one. Pin it so container and native builds agree.
+ENV SETUPTOOLS_SCM_PRETEND_VERSION=0.0.0.dev1+g079d40460
+RUN git clone --depth 1 -b ling_v3_support_mxfp4_humming https://github.com/inclusionAI/sglang.git /opt/sglang \
+    && git -C /opt/sglang rev-parse --short=9 HEAD | grep -q "^${SGLANG_REF}$" \
+    || (echo "branch head is not ${SGLANG_REF}; update SGLANG_REF" >&2; exit 1)
 RUN uv venv --python 3.11 /opt/venv \
     && uv pip install --python /opt/venv/bin/python "openai>=1.52.0,<2.0.0" \
     && MAX_JOBS=4 uv pip install --python /opt/venv/bin/python -e "/opt/sglang/python[all]" \

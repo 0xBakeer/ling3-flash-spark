@@ -61,3 +61,12 @@ the right prompt and missed with the wrong one.
 
 ## Streaming chunk counts lie under speculative decoding
 Several accepted tokens arrive per SSE chunk. Use `usage.completion_tokens`.
+
+## The engine version string depends on clone depth
+`setuptools_scm` builds SGLang's version from the git history it can see, so the
+*same commit* reports `0.0.0.dev1+g079d40460` from a `--depth 1` clone and
+`0.0.0.dev17258+g079d40460` from a full one. Anything keyed on that string --
+an inference-atlas cell, a JIT kernel cache directory -- then sees two engines
+where there is one. The container pins `SETUPTOOLS_SCM_PRETEND_VERSION` so it
+agrees with a native `./setup.sh` install. If you build your own image, keep
+that pin or your rows will not join the ones published here.
